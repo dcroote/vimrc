@@ -17,6 +17,7 @@ set hls                             " highlight search matches
 set showmatch                       " show bracket match
 set ruler                           " show row and column in footer
 set laststatus=2                    " always show status bar
+set number                          " show line numbers
 
 " relative line numbering, compatibile with older vim versions
 if version >= 703
