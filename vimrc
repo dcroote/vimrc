@@ -19,7 +19,13 @@ set ruler                           " show row and column in footer
 set laststatus=2                    " always show status bar
 set number                          " show line numbers
 
-" relative line numbering, compatibile with older vim versions
+" relative line numbering, incompatibile with older vim versions
 if version >= 703
     set relativenumber
 endif
+
+" easier split navigation
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
