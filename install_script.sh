@@ -5,5 +5,11 @@ if [ -f ~/.vimrc ]
 then mv ~/.vimrc ~/.vimrc_old
 fi
 
+# similarly, renames existing syntax folder
+if [ -d ~/.vim/syntax ]
+then mv ~/.vim/syntax ~/.vim/syntax_old
+fi
+
 # create symlink to included vimrc file
 ln -s $PWD/vimrc ~/.vimrc
+ln -s $PWD/syntax ~/.vim/syntax

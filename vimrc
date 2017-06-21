@@ -29,3 +29,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" syntax highlighting
+au BufNewFile,BufRead *.fasta set syntax=fasta
+au BufNewFile,BufRead *.fa set syntax=fasta
