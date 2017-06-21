@@ -33,3 +33,12 @@ nnoremap <c-l> <c-w>l
 " syntax highlighting
 au BufNewFile,BufRead *.fasta set syntax=fasta
 au BufNewFile,BufRead *.fa set syntax=fasta
+
+" map leader to space
+let mapleader=" "
+
+" saving and quitting
+nnoremap <leader>s :w<cr>
+nnoremap <leader>x :x<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>fq :q!<cr>
