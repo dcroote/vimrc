@@ -1,3 +1,13 @@
+
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+filetype plugin indent on  " required!
+
+call plug#end()
+
 filetype plugin on
 filetype indent on
 
@@ -42,3 +52,6 @@ nnoremap <leader>s :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>fq :q!<cr>
+
+" goto definition
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
