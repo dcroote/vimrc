@@ -3,6 +3,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on  " required!
 
