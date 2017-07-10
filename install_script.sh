@@ -2,17 +2,23 @@
 
 # Renames .vimrc as .vimrc_old if it exists
 if [ -f ~/.vimrc ]
-then mv ~/.vimrc ~/.vimrc_old && echo "Moving ~/.vimrc to ~/.vimrc_old"
+then mv ~/.vimrc ~/.vimrc_old && echo "Moved ~/.vimrc to ~/.vimrc_old"
 fi
 
 # similarly, renames existing syntax folder
 if [ -d ~/.vim/syntax ]
-then mv ~/.vim/syntax ~/.vim/syntax_old && echo "Moving ~/.vim/syntax to ~/.vim/syntax_old"
+then mv ~/.vim/syntax ~/.vim/syntax_old && echo "Moved ~/.vim/syntax to ~/.vim/syntax_old"
 fi
 
-# create symlink to included vimrc file
+# similarly, renames existing syntax folder
+if [ -d ~/.vim/colors ]
+then mv ~/.vim/colors ~/.vim/colors_old && echo "Moved ~/.vim/colors to ~/.vim/colors_old"
+fi
+
+# create symlink to included vimrc file, add directories
 ln -s $PWD/vimrc ~/.vimrc
 rsync -a $PWD/syntax/ ~/.vim/syntax/
+rsync -a $PWD/colors/ ~/.vim/colors/
 
 # install vim plug and packages in vimrc
 mkdir -p ~/.vim/plugged

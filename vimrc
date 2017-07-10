@@ -16,7 +16,7 @@ filetype indent on
 set autoread
 
 colorscheme SlateDark
-set term=screen-256color
+set term=screen-256color  " for tmux compatibility
 
 " dealing with tabs
 set tabstop=4
