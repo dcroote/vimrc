@@ -15,6 +15,9 @@ filetype indent on
 " set to auto read when a file is changed from the outside
 set autoread
 
+colorscheme SlateDark
+set term=screen-256color
+
 " dealing with tabs
 set tabstop=4
 set shiftwidth=4
