@@ -2,8 +2,12 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+if has("patch-7-4.1578")
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+endif
+
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'nvie/vim-flake8'
 
 filetype plugin indent on  " required!
 

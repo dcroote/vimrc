@@ -1,29 +1,27 @@
 #!/bin/bash
 
-# Renames .vimrc as .vimrc_old if it exists
-if [ -f ~/.vimrc ]
-then mv ~/.vimrc ~/.vimrc_old && echo "Moved ~/.vimrc to ~/.vimrc_old"
-fi
+backup() {
+    for f in "$@"
+    do
+       if [ -e "$f" ]
+           then
+               renamed="$f".bak.$(date +%Y%m%d%H%M)
+               mv "$f" "$renamed"
+               echo "Moved existing $f to $renamed"
+       fi
+     done
+}
 
-# similarly, renames existing syntax folder
-if [ -d ~/.vim/syntax ]
-then mv ~/.vim/syntax ~/.vim/syntax_old && echo "Moved ~/.vim/syntax to ~/.vim/syntax_old"
-fi
-
-# similarly, renames existing syntax folder
-if [ -d ~/.vim/colors ]
-then mv ~/.vim/colors ~/.vim/colors_old && echo "Moved ~/.vim/colors to ~/.vim/colors_old"
-fi
-
-# create symlink to included vimrc file, add directories
-ln -s $PWD/vimrc ~/.vimrc
+# backup files / directories, if they exist, before replacement
+backup ~/.vimrc ~/.vim/syntax ~/.vim/colors ~/.tmux.conf
+rsync -a $PWD/vimrc ~/.vimrc
 rsync -a $PWD/syntax/ ~/.vim/syntax/
 rsync -a $PWD/colors/ ~/.vim/colors/
+rsync -a $PWD/.tmux.conf ~/.tmux.conf
 
-# install vim plug and packages in vimrc
+# install vim-plug and plugins, if necessary
 mkdir -p ~/.vim/plugged
 mkdir -p ~/.vim/autoload
-
 if [ ! -f ~/.vim/autoload/plug.vim ]
 then
     curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim
