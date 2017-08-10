@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ~/.vim
+
 backup() {
     for f in "$@"
     do
