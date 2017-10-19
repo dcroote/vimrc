@@ -9,6 +9,7 @@ endif
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvie/vim-flake8'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'tpope/vim-surround'
 
 filetype plugin indent on  " required!
 
