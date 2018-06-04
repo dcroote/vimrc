@@ -10,6 +10,10 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvie/vim-flake8'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-surround'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'lervag/vimtex'
+set rtp+=~/.fzf
 
 filetype plugin indent on  " required!
 
@@ -61,7 +65,36 @@ let mapleader=" "
 nnoremap <leader>s :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
-nnoremap <leader>fq :q!<cr>
 
 " goto definition
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" fzf navigation
+nmap <leader>b :Buffers<CR>
+nmap <leader>f :Files<CR>
+
+" pytest
+nmap <leader>p :!pytest<CR>
+
+" lightline
+let g:lightline = {
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['readonly', 'fileencoding']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+
+" latex editing with vimtex
+let g:vimtex_compiler_latexmk = {'callback' : 0}
+au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us
