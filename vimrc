@@ -57,12 +57,18 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" syntax highlighting
-au BufNewFile,BufRead *.fasta set syntax=fasta
-au BufNewFile,BufRead *.fa set syntax=fasta
+" first, set filetype of snakemake to python
+au BufNewFile,BufRead Snakefile set filetype=python
+au BufNewFile,BufRead *.snake set filetype=python
+au BufNewFile,BufRead *.smk set filetype=python
+" now override with snakemake syntax
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
 au BufNewFile,BufRead *.smk set syntax=snakemake
+
+" other syntax highlighting
+au BufNewFile,BufRead *.fasta set syntax=fasta
+au BufNewFile,BufRead *.fa set syntax=fasta
 
 " map leader to space
 let mapleader=" "
