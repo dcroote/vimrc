@@ -16,6 +16,7 @@ Plug 'lervag/vimtex'
 Plug 'digitaltoad/vim-pug'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'rust-lang/rust.vim'
 set rtp+=~/.fzf
 
 filetype plugin indent on  " required!
