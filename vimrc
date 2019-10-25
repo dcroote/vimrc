@@ -38,6 +38,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" backspace works on indents
+set backspace=indent,eol,start
+
 inoremap jk <ESC>
 syntax on
 set encoding=utf-8
