@@ -71,6 +71,9 @@ au BufNewFile,BufRead *.smk set syntax=snakemake
 au BufNewFile,BufRead *.fasta set syntax=fasta
 au BufNewFile,BufRead *.fa set syntax=fasta
 
+" git commit message spell check
+autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+
 " map leader to space
 let mapleader=" "
 
