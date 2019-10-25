@@ -2,18 +2,12 @@
 
 call plug#begin('~/.vim/plugged')
 
-if has("patch-7-4.1578")
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-endif
-
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvie/vim-flake8'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-surround'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'lervag/vimtex'
-Plug 'digitaltoad/vim-pug'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim'
@@ -85,9 +79,6 @@ nnoremap <leader>s :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
 
-" goto definition
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 " fzf navigation
 nmap <leader>b :Buffers<CR>
 nmap <leader>f :Files<CR>
@@ -113,13 +104,3 @@ let g:lightline = {
 \   'linter_errors': 'error'
 \ },
 \ }
-
-" latex editing with vimtex
-let g:vimtex_compiler_latexmk = {'callback' : 0}
-au BufRead,BufNewFile *.tex setlocal spell spelllang=en_us
-
-" pug (jade) configuration
-autocmd BufNewFile,BufRead *.jade set filetype=pug
-autocmd Filetype pug setlocal ts=2 sts=2 sw=2
-autocmd Filetype pug IndentGuidesEnable
-autocmd Filetype pug let g:indent_guides_guide_size = 1
