@@ -104,3 +104,7 @@ let g:lightline = {
 \   'linter_errors': 'error'
 \ },
 \ }
+
+set nofoldenable
+
+hi Search ctermbg=189 ctermfg=Black
