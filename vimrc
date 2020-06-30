@@ -108,3 +108,13 @@ let g:lightline = {
 set nofoldenable
 
 hi Search ctermbg=189 ctermfg=Black
+
+" connect to system clipboard on WSL
+" https://vi.stackexchange.com/a/16114
+" microsoft may need to be capitalized depending on WSL distribution
+if system('uname -r') =~ "microsoft"
+  augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe ',@")
+  augroup END
+endif
